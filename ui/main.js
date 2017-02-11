@@ -45,15 +45,32 @@ img.onclick = function () {
   var name = nameInput.value;
   var submit = document.getElementById('submit_btn');
   submit.onclick = function(){
-      //make a request to the seerver and send the name'
-      //capture a list of names andf render it aas a lst
-      var names = ['name1','name2','name3','name4'];
+      // capture the response and storw it in a variable
+      request.onreadystatechange = function (){
+          if (request.readyState === XMLHttpRequest.DONE){
+              //Take some ACTION
+              if (request.status === 200) {
+               //capture a list of names andf render it aas a lst
+      var names = request.responseText;
+      names = JSON.parse(names);
       var list ='';
       for (var i=0; i < names.length; i++) {
          list += '<li>' + names[i] + '</li>';
           
       }
       var ul = document.getElementById('namelist');
-      ul.innerHTML = list;
+      ul.innerHTML = list;     
+                  
+              }
+          }
+          //not done yet
+      };
+      
+      //make tghe request
+      request.open('GET' , 'http://sreekumar2.imad.hasura-app.io/submit-name?name='+name ,true);
+      request.send(null);
+      
+      //make a request to the seerver and send the name'
+      
   };
  
