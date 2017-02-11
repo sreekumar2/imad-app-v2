@@ -41,13 +41,12 @@ img.onclick = function () {
       
   };
   // S ubmit name
-  var nameInput = document.getElementById("name");
-  var name = nameInput.value;
+  
   var submit = document.getElementById('submit_btn');
   submit.onclick = function(){
       // capture the response and storw it in a variable
       request.onreadystatechange = function (){
-          if (request.readyState === XMLHttpRequest.DONE){
+          if (request.readyState === XMLHttpRequest.DONE) {
               //Take some ACTION
               if (request.status === 200) {
                //capture a list of names andf render it aas a lst
@@ -67,7 +66,9 @@ img.onclick = function () {
       };
       
       //make tghe request
-      request.open('GET' , 'http://sreekumar2.imad.hasura-app.io/submit-name?name='+name ,true);
+      var nameInput = document.getElementById("name");
+      var name = nameInput.value;
+      request.open('GET' , 'http://sreekumar2.imad.hasura-app.io/submit-name?name='+ name ,true);
       request.send(null);
       
       //make a request to the seerver and send the name'
