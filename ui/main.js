@@ -35,7 +35,7 @@ img.onclick = function () {
       };
       
       //make tghe request
-      request.open('GET' , 'http://http://sreekumar2.imad.hasura-app.io/counter',true);
+      request.open('GET' , 'http://sreekumar2.imad.hasura-app.io/counter',true);
       request.send(null);
      
       
