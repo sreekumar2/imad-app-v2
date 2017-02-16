@@ -75,6 +75,16 @@ function createTemplate (data){
                     <div>
                     ${content}
                     </div>
+                    </hr>
+                    <div class="footer">
+                    
+                    This button <button id='counter'>click me!</button> has been clicked <span id="count">0</span> times.
+                    <hr/>
+                    <input type="text" id="name" placeholder="name"> </input>
+                    <input type="submit" value="submit" id = "submit_btn"></input>
+                    <ul id="namelist">
+                        
+                    </ul>
                 </div>
         </body>
     </html>
